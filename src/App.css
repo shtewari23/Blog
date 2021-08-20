@@ -1,7 +1,14 @@
 .App {
   text-align: center;
 }
-
+.body{
+  background-color: antiquewhite;
+  height: 300px;
+  width: 100px;
+  flex: content;
+  justify-content: center;
+  align-items: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

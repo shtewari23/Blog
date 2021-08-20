@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function SignUp() {
-    const[name ,setName] =useState('');
+    const[username ,setName] =useState('');
     const[email ,setEmail] =useState('');
     const[password ,setPassword] =useState('');
 
    async function submit(){
-        let item= {name,password,email}
+        let item= {user:{username,password,email}}
         console.warn(item)
-        let result = await fetch(" https://conduit.productionready.io/api",{
+        let result = await fetch(" https://conduit.productionready.io/api/users",{
          method : 'POST',
         body :JSON.stringify(item),
         headers: {
@@ -25,7 +26,7 @@ function SignUp() {
 
                 <div className="form-group">
                     <label>First name</label>
-                    <input type="text" className="form-control" placeholder="First name" value={name} 
+                    <input type="text" className="form-control" placeholder="First name" value={username} 
             onChange={(e) => setName(e.target.value)}/>
                 </div>
 
