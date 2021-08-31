@@ -1,10 +1,8 @@
-import { useHistory } from "react-router";
-import React, { Component } from 'react';
 import './App.css'
 function Dashboard(){
     
     return(
-      <div className='a'>
+        <div>
           <h1>dasd</h1>
       </div>
        

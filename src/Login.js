@@ -1,12 +1,9 @@
-import { render } from "@testing-library/react";
-import React, { Component } from "react";
 import { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Dashboard from "./Dashboard";
 function Login() {
 
     const[email,setEmail]=useState('')
-    const[username,setName]=useState('')
     const[password,setPassword]=useState('')
     const history =useHistory()
     useEffect(()=>{
@@ -66,7 +63,6 @@ function Login() {
 
                 <button type="submit" className="btn btn-primary btn-block" onClick={login}>Submit</button>
                 <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
                 </p>
             </form>
         );
