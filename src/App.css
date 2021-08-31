@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+.a{
+  height: 400px;
+  width: 300px;
+}
 .body{
   background-color: antiquewhite;
   height: 300px;

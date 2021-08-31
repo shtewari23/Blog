@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function SignUp() {
+
     const[username ,setName] =useState('');
     const[email ,setEmail] =useState('');
     const[password ,setPassword] =useState('');
 
-   async function submit(){
+   async function submit(event){
+    event.preventDefault();
         let item= {user:{username,password,email}}
         console.warn(item)
         let result = await fetch(" https://conduit.productionready.io/api/users",{
          method : 'POST',
+
         body :JSON.stringify(item),
         headers: {
             "Content-Type" :'application/json',
             "Accept" :'application/json'
         }
         })
-        result = await result.json()
+        alert('SignUp Succesfully')
         console.warn('result',result)
     }
         return (
@@ -46,7 +49,7 @@ function SignUp() {
 
                 <button type="submit" onClick ={submit}className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
+                    Already registered <a href="Login">sign in?</a>
                 </p>
             </form>
         );
