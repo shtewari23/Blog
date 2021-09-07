@@ -1,15 +1,13 @@
-import './App.css'
-function Dashboard(){
+import React from 'react';
+import './App.css';
+function Dashboard() {
+  return (
+    <div className="App">
     
-    return(
-        <div>
-          <h1>dasd</h1>
-      </div>
-       
-
-    
-    )
-
-}
-
-export default Dashboard
+    <div className="container">
+      <p>Dashboard</p>
+          </div>
+          </div>
+        
+  )}
+  export default Dashboard

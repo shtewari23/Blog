@@ -1,6 +1,22 @@
 .App {
   text-align: center;
 }
+
+.c{
+  flex: content;
+  background-color: white;
+  justify-content: left;
+  align-items: center;
+  width: 100px;
+  height:0px;
+  flex-direction: right;
+   margin-left: 700px;
+   margin-bottom: 470px;
+}
+.logout{
+  border-radius: 20px;
+  border-color: black;
+}
 .a{
   height: 400px;
   width: 300px;

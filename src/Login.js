@@ -1,71 +1,89 @@
-import { useState,useEffect } from "react";
+//importing components
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import axios from "./axios.config";
+
+
+//Login function will be called when login get button get clicked
 function Login() {
+  const [email, setEmail] = useState(""); //Initializing email and setEmail to store email value
+  const [password, setPassword] = useState(""); //Initializing passsword and setPassword to store password value
+  const history = useHistory();
 
-    const[email,setEmail]=useState('')
-    const[password,setPassword]=useState('')
-    const history =useHistory()
-    useEffect(()=>{
-        if ( localStorage.getItem('user-info')){
-           <div>
-               <Dashboard/>
-           </div>
-            }
-        }
-    
+  const login = async (event) => {
+    event.preventDefault(); //
+    console.warn(email, password);
+    let item = { user: { email, password } }; // Storing the value of email and password in item
+    console.log(item);
 
-    )
-    async function login(event){
-        event.preventDefault();
-        console.warn(email,password)
-        let item= {user:{email,password}}
-     
-        let result = await fetch(" https://conduit.productionready.io/api/users/login",{
-        method : 'POST',
-        headers: {
-            "Content-Type" :'application/json',
-            "Accept" :'application/json'
-        },
-        body :JSON.stringify(item),
-        })
-        result=await result.json();
-        localStorage.setItem("user-info",JSON.stringify(result))
-        history.push('/Dashboard')
-        console.warn('result',result)
-    }
+    //Requesting api
+    axios
+      .post("/api/users/login", item)
+      .then((result) => {
+        sessionStorage.setItem("token", result.data.user.token); //Storing token in result
+        console.warn("result", result);
+        history.push("/Homepage");
+        history.push("/Ph")
+      })
 
-    
-        return (
-            <form >
-                <h3>Sign In</h3>
+      //Catching and displaying the errors
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
+  };
+  return (
+    //Creating a sign in form
+    <form>
+      <h3>Sign In</h3>
+      <div className="form-group">
+        {/* Textobox for email address */}
+        <label>Email address</label>
+        <input
+          type="email"
+          className="form-control"
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
 
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email"
-                    onChange={(e)=>setEmail(e.target.value)}
-                    />
-                </div>
+      {/* Textobox for password */}
+      <div className="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          className="form-control"
+          placeholder="Enter password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
 
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" 
-                    onChange ={(e)=>setPassword(e.target.value)}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                    </div>
-                </div>
-
-                <button type="submit" className="btn btn-primary btn-block" onClick={login}>Submit</button>
-                <p className="forgot-password text-right">
-                </p>
-            </form>
-        );
-    
+      <div className="form-group">
+        <div className="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            className="custom-control-input"
+            id="customCheck1"
+          />
+          {/* Checkbox */}
+          <label className="custom-control-label" htmlFor="customCheck1">
+            Remember me
+          </label>
+        </div>
+      </div>
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="btn btn-primary btn-block"
+        onClick={login}
+      >
+        Submit
+      </button>
+      <p className="forgot-password text-right"></p>
+    </form>
+  );
 }
-export default Login
+{
+  /* Exporting login component */
+}
+export default Login;
