@@ -1,29 +1,16 @@
 import React, { useEffect,useState } from 'react';
 
 const Ph=(props)=>{ 
-       const [n ,setAuthor]=useState([])
-
-    useEffect(()=>{
-
-            fetch('https://conduit.productionready.io/api/articles')
-            .then((res)=> res.json())
-            .then((n=>setAuthor (n.articles)));
-        
-    },[]);
 
     
 return (
     <div>
-        <h1> Author name</h1>
-       <ul>
-           {console.log('auth==>', n)}
-           {n.map((item)=>(
-               <li key={item.id}>{item.author.username}</li>  
-           ))
-           }
-       </ul>
-        
-      
+        <h1> 
+            <Photo  author={item.airtcle.author}  />
+            <img source={props.author.image}/>
+            <p>{props.author.username}</p>
+        </h1>
+       
         </div>
         )
     

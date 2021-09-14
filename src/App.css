@@ -1,34 +1,70 @@
+.article{
+padding: 30px;
+padding-left: 2px;
+margin-top: 40px;
+}
+
+.parent{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1000px;
+}
+
+
+
+
+
+.username{
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+  font-size: 12px;
+  padding-top: 4px;
+}
+
+.image1{
+  height:180px;
+  width: 220px;
+  padding: 5px;
+  background-color:white;
+}
+
+
+.image2{
+  height:160px;
+  width: 160px;
+  border-radius: 6px;
+  padding-left: 4px;
+  padding-top: 2px;
+  border: 2px;
+  border-radius: 120px;
+  margin-left: 18px;
+
+
+}
+
 .App {
   text-align: center;
 }
 
 .c{
-  flex: content;
-  background-color: white;
+  background-color: red;
   justify-content: left;
   align-items: center;
-  width: 100px;
+  width: 500px;
   height:0px;
-  flex-direction: right;
    margin-left: 700px;
    margin-bottom: 470px;
 }
+
 .logout{
-  border-radius: 20px;
+  border-radius: 0px;
   border-color: black;
 }
-.a{
-  height: 400px;
-  width: 300px;
-}
-.body{
-  background-color: antiquewhite;
-  height: 300px;
-  width: 100px;
-  flex: content;
-  justify-content: center;
-  align-items: center;
-}
+
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -48,7 +84,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #5ccbf6;
 }
 
 .App-link {
@@ -62,4 +98,86 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.log{
+  margin-left: 1190px;
+  margin-top: 6px;
+
+}
+
+.desc{
+  background-color: white;
+  margin-right: 10px;
+
+
+  padding-top: 90px !important;
+
+}
+
+.desc2{
+
+  background-color: rgb(217, 230, 235) ;
+  height:190px;
+  width:400px;
+  box-shadow: 5px 5px 5px 4px #f7b830;
+
+
+}
+.descr{
+  font-size: 16px;
+ 
+  /*margin-top: 70px;*/
+  color: #4caf50;;
+  font-family:'Courier New', Courier, monospace;
+  text-transform: capitalize;
+  padding-left: 4px;
+  font-style:initial;
+  
+}
+
+.title{
+  text-transform: uppercase;
+  font-size: 14px;
+padding-top: 5px;
+padding-left: 8px;
+color:#f7b830;
+}
+
+.t{
+  text-transform: uppercase;
+  font-size: 14px;
+padding-top: 5px;
+padding-left: 8px;
+color: #4caf50;;
+
+}
+.a{
+}
+
+.b{
+
+}
+.img{
+  height:32px;
+  width:30px;
+  margin: auto;
+}
+.but{
+  padding: 0;
+border: none;
+background: none;
+}
+
+.likeBtn{
+  height: 38px;
+  padding: 0 30px;
+  font-size: 11px;
+  background-color: transparent;
+  border-radius: 6px;
+}
+.bu{
+  margin-bottom: 8px !important;
+  height: 4px !important;
+  width: 4px;
 }

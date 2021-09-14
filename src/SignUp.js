@@ -1,30 +1,32 @@
+/* eslint-disable no-console */
 // Imporitng Components
-import React, { useState } from "react";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //Creating SignUp component
 function SignUp() {
-  const [username, setName] = useState(""); //Initializing username and setName function
-  const [email, setEmail] = useState(""); //Initializing email and setName function
-  const [password, setPassword] = useState(""); //Initializing password and setpassword function
+  const [username, setName] = useState(''); //Initializing username and setName function
+  const [email, setEmail] = useState(''); //Initializing email and setName function
+  const [password, setPassword] = useState(''); //Initializing password and setpassword function
 
   //submit function will call when submit button get clicked
   async function submit(event) {
     event.preventDefault();
     let item = { user: { username, password, email } }; //Storing value of username,password and email in item
+    // eslint-disable-next-line no-console
     console.warn(item);
 
     // Fetching the api
-    let result = await fetch("https://conduit.productionready.io/api/users", {
-      method: "POST", //Using post method
+    let result = await fetch('https://conduit.productionready.io/api/users', {
+      method: 'POST', //Using post method
 
       body: JSON.stringify(item),
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
     });
-    console.warn("result", result);
+    console.warn('result', result);
   }
   return (
     //Creating a register form
@@ -41,7 +43,7 @@ function SignUp() {
           className="form-control"
           placeholder="First name"
           value={username}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value) }
         />
       </div>
 
