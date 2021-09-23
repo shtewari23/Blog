@@ -17,16 +17,21 @@ function SignUp() {
     console.warn(item);
 
     // Fetching the api
-    let result = await fetch('https://conduit.productionready.io/api/users', {
-      method: 'POST', //Using post method
+    try {
+      let result = await fetch('https://conduit.productionready.io/api/users', {
+        method: 'POST', //Using post method
 
-      body: JSON.stringify(item),
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    });
-    console.warn('result', result);
+        body: JSON.stringify(item),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      });
+      console.warn('result', result);
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
   }
   return (
     //Creating a register form
@@ -43,7 +48,7 @@ function SignUp() {
           className="form-control"
           placeholder="First name"
           value={username}
-          onChange={(e) => setName(e.target.value) }
+          onChange={(e) => setName(e.target.value)}
         />
       </div>
 

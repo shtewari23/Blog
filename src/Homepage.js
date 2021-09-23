@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 import './App.css';
 // eslint-disable-next-line no-unused-vars
 import axios from './axios.config.js';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 
 function Homepage() {
-  const history = useHistory();
+  const history = useNavigate();
   // eslint-disable-next-line no-unused-vars
   const config = {
     headers: {

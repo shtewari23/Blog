@@ -2,20 +2,21 @@
 /* eslint-disable no-console */
 //importing components
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import axios from './axios.config';
 
 //Login function will be called when login get button get clicked
 function Login() {
   const [email, setEmail] = useState(''); //Initializing email and setEmail to store email value
   const [password, setPassword] = useState(''); //Initializing passsword and setPassword to store password value
-  const history = useHistory();
+  const history = useNavigate();
 
   const login = async (event) => {
     event.preventDefault(); //
     console.warn(email, password);
     let item = { user: { email, password } }; // Storing the value of email and password in item
     console.log(item);
+    
     
 
     //Requesting api
@@ -24,7 +25,7 @@ function Login() {
       .then((result) => {
         sessionStorage.setItem('token', result.data.user.token); //Storing token in result
         console.warn('result', result);
-        history.push('/Parent');
+        history('/Parent');
       })
 
       //Catching and displaying the errors
