@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 //importing components
 import React, { useState, useEffect } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from './axios.config';
 
 //Login function will be called when login get button get clicked
@@ -16,7 +16,6 @@ function Login() {
     console.warn(email, password);
     let item = { user: { email, password } }; // Storing the value of email and password in item
     console.log(item);
-    
     
 
     //Requesting api
